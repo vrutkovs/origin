@@ -235,6 +235,10 @@ func pulledInvalidImages(fromRepository string) ginkgo.JUnitForEventsFunc {
 			if !strings.Contains(" "+event.Message, " reason/Pulled ") {
 				continue
 			}
+			// Skip "Container image foo already present on machine"
+			if !strings.Contains(event.Message, "Successfully pulled image ") {
+				continue
+			}
 			// only look at pull events from an e2e-* namespace
 			if !strings.Contains(" "+event.Locator, " ns/e2e-") {
 				continue
