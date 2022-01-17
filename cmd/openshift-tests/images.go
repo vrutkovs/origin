@@ -248,7 +248,8 @@ func pulledInvalidImages(fromRepository string) ginkgo.JUnitForEventsFunc {
 			if len(parts) == 0 {
 				continue
 			}
-			image := strings.TrimPrefix(parts[len(parts)-1], "image/")
+			// Format: Successfully pulled image "registry.build01.ci.openshift.org/ci-op-4jv39zgs/stable@sha256:4ec314af688b816739d18400d0fd199d42347aa636bee24b78e1ab2d06ada3e2" in 3.925893074s
+			image := strings.TrimPrefix(parts[len(parts)-3], "image/")
 			if hasAnyStringPrefix(image, allowedPrefixes) || allowedImages.Has(image) {
 				continue
 			}
