@@ -215,7 +215,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-1ehgs15tubhcc"
+                "Name": "prometheus-adapter-10c7jbp0gtbak"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -225,7 +225,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-1vcbbd485dtu8"
+                "Name": "prometheus-adapter-7hc7s2n3v1vfn"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -235,7 +235,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-2la6907ck7pse"
+                "Name": "prometheus-adapter-9562to9jnnbh7"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -245,7 +245,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-4ho3dj3us2df4"
+                "Name": "prometheus-adapter-9h8n81fsisho1"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -255,7 +255,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-56glf1mhs3bbm"
+                "Name": "prometheus-adapter-9h8qkilj8tmed"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -265,7 +265,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-5b3cu0f6s65i"
+                "Name": "prometheus-adapter-aiees6lq44232"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -275,7 +275,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-5blo6a2jkr388"
+                "Name": "prometheus-adapter-as8l5j5i80jr3"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -285,7 +285,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-ba21034efmj7v"
+                "Name": "prometheus-adapter-b74b80smn1mp9"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -295,7 +295,7 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-bo9ukpiqhr327"
+                "Name": "prometheus-adapter-cq7h7bb24vv2k"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -305,7 +305,17 @@
         {
             "secretLocation": {
                 "Namespace": "openshift-monitoring",
-                "Name": "prometheus-adapter-d6ej41uj54llt"
+                "Name": "prometheus-adapter-dcspud8908r2g"
+            },
+            "certKeyInfo": {
+                "owningJiraComponent": "",
+                "description": ""
+            }
+        },
+        {
+            "secretLocation": {
+                "Namespace": "openshift-monitoring",
+                "Name": "prometheus-adapter-e6nokq7lr869g"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
@@ -326,26 +336,6 @@
             "secretLocation": {
                 "Namespace": "openshift-network-node-identity",
                 "Name": "network-node-identity-cert"
-            },
-            "certKeyInfo": {
-                "owningJiraComponent": "",
-                "description": ""
-            }
-        },
-        {
-            "secretLocation": {
-                "Namespace": "openshift-operator-lifecycle-manager",
-                "Name": "packageserver-service-cert"
-            },
-            "certKeyInfo": {
-                "owningJiraComponent": "",
-                "description": ""
-            }
-        },
-        {
-            "secretLocation": {
-                "Namespace": "openshift-operator-lifecycle-manager",
-                "Name": "pprof-cert"
             },
             "certKeyInfo": {
                 "owningJiraComponent": "",
