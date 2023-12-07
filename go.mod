@@ -322,3 +322,5 @@ replace (
 	k8s.io/sample-cli-plugin => github.com/openshift/kubernetes/staging/src/k8s.io/sample-cli-plugin v0.0.0-20230926120034-e3ba6d9fbe72
 	k8s.io/sample-controller => github.com/openshift/kubernetes/staging/src/k8s.io/sample-controller v0.0.0-20230926120034-e3ba6d9fbe72
 )
+
+replace github.com/openshift/library-go => github.com/vrutkovs/library-go v0.0.0-20231207110801-b0a724002163
