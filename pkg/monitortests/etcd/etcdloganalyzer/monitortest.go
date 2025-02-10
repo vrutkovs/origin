@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
+	"sort"
 	"strings"
 	"time"
 
@@ -31,9 +32,6 @@ type etcdLogAnalyzer struct {
 
 	stopCollection     context.CancelFunc
 	finishedCollecting chan struct{}
-
-	// save so the test can refer to these intervals
-	constructed monitorapi.Intervals
 }
 
 func NewEtcdLogAnalyzer() monitortestframework.MonitorTest {
@@ -142,15 +140,36 @@ func (w *etcdLogAnalyzer) ConstructComputedIntervals(ctx context.Context, starti
 		ret = append(ret, newInterval.Build(startTime, time.Time{}))
 		newInterval = nil
 	}
-
-	w.constructed = ret
-	return w.constructed, nil
+	return ret, nil
 }
 
-func (w *etcdLogAnalyzer) EvaluateTestsFromConstructedIntervals(ctx context.Context, finalIntervals monitorapi.Intervals) ([]*junitapi.JUnitTestCase, error) {
+func (*etcdLogAnalyzer) EvaluateTestsFromConstructedIntervals(ctx context.Context, finalIntervals monitorapi.Intervals) ([]*junitapi.JUnitTestCase, error) {
+	etcdIntervals := monitorapi.Intervals{}
+	for _, interval := range finalIntervals {
+		value, ok := interval.Message.Annotations[monitorapi.AnnotationConstructed]
+		if !ok {
+			continue
+		}
+		if value != monitorapi.ConstructionOwnerEtcdLifecycle {
+			continue
+		}
+		if len(interval.Message.Reason) != 0 {
+			continue
+		}
+		if interval.Locator.HasKey("node") {
+			if len(interval.Locator.Keys["node"]) == 0 {
+				continue
+			}
+		}
+		if value, ok := interval.Message.Annotations[monitorapi.AnnotationEtcdLeader]; ok && len(value) == 0 {
+			continue
+		}
+		etcdIntervals = append(etcdIntervals, interval)
+	}
+	sort.Sort(etcdIntervals)
 	junitTest := &junitTest{
 		name:     "[sig-etcd] cluster should not be without a leader for more than 10s",
-		computed: w.constructed,
+		computed: etcdIntervals,
 	}
 
 	framework.Logf("monitor[%s]: found %d intervals of interest", "EtcdLogAnalyzer", len(junitTest.computed))
